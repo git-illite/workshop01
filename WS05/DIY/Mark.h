@@ -26,8 +26,8 @@ namespace sdds {
 		Mark& operator+=(int value);
 		Mark& operator-=(int value);
 		Mark& operator=(int value);
-		Mark& operator<<(Mark& rightOper);
-		Mark& operator>>(Mark& leftOper);
+		/*Mark& operator<<(Mark& rightOper);
+		Mark& operator>>(Mark& leftOper);*/
 
 	};
 	int operator+=(int &value, const Mark& rightOper);

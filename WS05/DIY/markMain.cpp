@@ -40,5 +40,6 @@ int main() {
    int val = 60;
    cout << (val += n) << endl;
    cout << (val += k) << endl;
+
    return 0;
 }

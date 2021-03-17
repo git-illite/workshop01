@@ -38,10 +38,10 @@ namespace sdds {
 		m_mark = value;
 
 		if (valid()) {
-			m_mark = value;
 			m_usable = true;
 		}
 		else {
+			m_mark = 0;
 			//setEmpty();
 			m_usable = false;
 		}
@@ -56,12 +56,12 @@ namespace sdds {
 	Mark::operator double() const
 	{
 		double grade = 0.0;
-		if ((m_mark >= 0) && (m_mark < 50)) grade = gradeNums[0];
+		if ((m_mark >= 1) && (m_mark < 50)) grade = gradeNums[0];
 		else if ((m_mark >= 50) && (m_mark < 60)) grade = gradeNums[1];
 		else if ((m_mark >= 60) && (m_mark < 70)) grade = gradeNums[2];
 		else if ((m_mark >= 70) && (m_mark < 80)) grade = gradeNums[3];
 		else if ((m_mark >= 80) && (m_mark <= 100)) grade = gradeNums[4];
-		else if ((m_mark < 0) || (m_mark > 100))grade = 0.0;
+		//else if ((m_mark <= 0) || (m_mark > 100))grade = 0.0;
 
 		
 		return grade;
@@ -71,7 +71,7 @@ namespace sdds {
 	{
 		char grade = 'X';
 		if (m_usable) {
-			if ((m_mark >= 0) && (m_mark < 50)) grade = grades[0];
+			if ((m_mark > 0) && (m_mark < 50)) grade = grades[0];
 			else if ((m_mark >= 50) && (m_mark < 60))grade = grades[1];
 			else if ((m_mark >= 60) && (m_mark < 70))grade = grades[2];
 			else if ((m_mark >= 70) && (m_mark < 80))grade = grades[3];
@@ -90,14 +90,14 @@ namespace sdds {
 		else m_usable = false;
 		return *this;
 	}
-	Mark& Mark::operator-=(int value)
+	/*Mark& Mark::operator-=(int value)
 	{
 		if ((value - m_mark) >= 0) {
 			m_mark -= value;
 		}
 		else m_usable = false;
 		return *this;
-	}
+	}*/
 
 	Mark& Mark::operator=(int value)
 	{
@@ -107,7 +107,7 @@ namespace sdds {
 		return *this;
 	}
 
-	Mark& Mark::operator<<(Mark& rightOper)
+	/*Mark& Mark::operator<<(Mark& rightOper)
 	{
 		if ((valid()) && (rightOper.valid())) {
 			m_mark = rightOper.m_mark;
@@ -122,7 +122,7 @@ namespace sdds {
 			leftOper.m_mark = 0;
 		}
 		return *this;
-	}
+	}*/
 	
 	
 	int operator+=(int &value, const Mark& rightOper)
